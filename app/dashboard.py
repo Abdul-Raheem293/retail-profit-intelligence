@@ -1,12 +1,12 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="AI-Driven Analytics",
+    page_title="Retail Profit Intelligence",
     page_icon="📊",
     layout="wide"
 )
 
-st.title("AI-Driven Analytics")
+st.title("Retail Profit Intelligence")
 st.write(
     "An interactive analytics dashboard with "
     "machine learning-powered profit prediction."
@@ -203,12 +203,16 @@ with col2:
         "category-region combination with negative total profit."
     )
 
-import joblib
+from pathlib import Path
+import sys
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT_ROOT))
+
+from src.models.predictor import load_model, predict_profit
 
 # Load the trained profit prediction pipeline
-profit_pipeline = joblib.load(
-    "models/final_profit_prediction_pipeline.pkl"
-)
+profit_pipeline = load_model()
 
 st.subheader("AI Profit Prediction")
 
@@ -399,9 +403,10 @@ if st.button("Predict Profit"):
         hide_index=True
         )
 
-    predicted_profit = profit_pipeline.predict(
-        prediction_input
-    )[0]
+    predicted_profit = predict_profit(
+        profit_pipeline,
+        prediction_input.to_dict(orient="records")[0]
+    )
 
     predicted_margin = (
         predicted_profit / sales * 100

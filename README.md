@@ -1,12 +1,10 @@
-# AI-Driven Analytics
+# Retail Profit Intelligence
 
-An end-to-end data analytics and machine learning project built on the Superstore dataset.
-
-The project combines exploratory data analysis, business insights, and a machine learning model for transaction-level profit prediction, presented through an interactive Streamlit dashboard.
+An end-to-end retail analytics and machine learning project focused on transaction-level profit prediction.
 
 ## Project Overview
 
-AI-Driven Analytics is an end-to-end analytics project designed to transform transactional business data into actionable insights and machine learning predictions.
+Retail Profit Intelligence is an end-to-end retail analytics project designed to transform transactional business data into actionable insights and machine learning predictions.
 
 The project covers:
 
@@ -51,7 +49,7 @@ The project covers:
 ## Project Structure
 
 ```text
-AI-DRIVEN ANALYTICS/
+RETAIL-PROFIT-INTELLIGENCE/
 │
 ├── app/
 │   └── dashboard.py
